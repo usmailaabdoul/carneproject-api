@@ -2,9 +2,9 @@ const CourseModel = require('../models/course');
 
 class CourseService {
 
-  async createCourse(book) {
-    const newBook = await CourseModel.create(book);
-    return newBook;
+  async createCourse(course) {
+    const newCourse = await CourseModel.create(course);
+    return newCourse;
   }
 
   getCourses(searchQuery = {}) {
@@ -15,8 +15,8 @@ class CourseService {
     return CourseModel.findById(id);
   }
 
-  async updateById(id, book) {
-    await CourseModel.updateOne({_id: id}, book, { new: true });
+  async updateById(id, course) {
+    await CourseModel.updateOne({_id: id}, course, { new: true });
     return this.getByCourseId(id);
   };
 

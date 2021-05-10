@@ -65,8 +65,8 @@ class UserService {
     return UserModel.findById(id);
   }
 
-  async updateById(id, book) {
-    await UserModel.updateOne({ _id: id }, book, { new: true });
+  async updateById(id, user) {
+    await UserModel.updateOne({ _id: id }, user, { new: true });
     return this.getByUserId(id);
   };
 
