@@ -2,6 +2,13 @@ const mongoose = require('mongoose');
 
 let mongooseConnection;
 
+/**
+ * this runs the mongodb connection to the database
+ *
+ * @param {*} mongoUrl
+ * @param {boolean} [forceRefresh=false]
+ * @return {*} 
+ */
 async function run(mongoUrl, forceRefresh = false) {
   if (mongooseConnection && !forceRefresh) { return mongooseConnection; }
 

@@ -1,6 +1,14 @@
 const HttpStatus = require('http-status-codes');
 const AuthService = require('../services/auth');
 
+/**
+ * authguard validates a user token to prevent users withough token from perfoming specific actions
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ * @return {*} 
+ */
 async function authGuard(req, res, next) {
   const authorization = req.headers.authorization;
 

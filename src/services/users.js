@@ -5,8 +5,20 @@ const UserModel = require('../models/user');
 
 const saltRounds = 10;
 
+/**
+ *
+ *
+ * @class UserService
+ */
 class UserService {
 
+  /**
+   *
+   *
+   * @param {*} user
+   * @return {*} 
+   * @memberof UserService
+   */
   async createUser(user) {
     const { password, name, email, phoneNumber, address } = user;
     const hash = await bcrypt.hash(password, saltRounds);
@@ -23,6 +35,13 @@ class UserService {
     return newUser;
   }
 
+  /**
+   *
+   *
+   * @param {*} user
+   * @return {*} 
+   * @memberof UserService
+   */
   async logInUser(user) {
     const {email, password} = user;
 
@@ -51,25 +70,61 @@ class UserService {
     return obj;
   }
 
+  /**
+   *
+   *
+   * @param {*} email
+   * @return {*} 
+   * @memberof UserService
+   */
   async getUserByEmail(email) {
     let user = await UserModel.findOne({email}).exec()
 
     return user
   };
 
+  /**
+   *
+   *
+   * @param {*} [searchQuery={}]
+   * @return {*} 
+   * @memberof UserService
+   */
   findUser(searchQuery = {}) {
     return UserModel.find(searchQuery);
   }
 
+  /**
+   *
+   *
+   * @param {*} id
+   * @return {*} 
+   * @memberof UserService
+   */
   getByUserId(id) {
     return UserModel.findById(id);
   }
 
+  /**
+   *
+   *
+   * @param {*} id
+   * @param {*} user
+   * @return {*} 
+   * @memberof UserService
+   */
   async updateById(id, user) {
     await UserModel.updateOne({ _id: id }, user, { new: true });
     return this.getByUserId(id);
   };
 
+  /**
+   *
+   *
+   * @param {*} id
+   * @return {*} 
+   * @memberof UserService
+   */
   deleteByUserId(id) {
     return UserModel.deleteOne({ _id: id });
   }

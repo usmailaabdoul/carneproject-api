@@ -3,6 +3,12 @@ const createServer = require('./src/server');
 const setUpMongoose = require('./config/mongoose');
 
 let url = {mongoUrl: process.env.MONGODB_URL || 'mongodb://localhost/carnaProject'}
+
+/**
+ *initial function initialises mongodb and starts server
+ *
+ * @return {*} 
+ */
 async function init() {
   await setUpMongoose(url.mongoUrl);
 

@@ -4,6 +4,11 @@ const cors = require('cors');
 
 const routes = require('./routes');
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function createApplication() {
   const app = express();
 

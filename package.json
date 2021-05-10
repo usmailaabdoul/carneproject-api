@@ -4,7 +4,7 @@
   "description": "this contains the Rest Api's for the Carna project",
   "main": "index.js",
   "scripts": {
-    "test": "run test",
+    "test": "mocha --timeout=60000 --recursive --exit",
     "start": "node .",
     "dev": "nodemon index.js"
   },
@@ -22,6 +22,8 @@
     "mongoose": "^5.12.7"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.4.0",
     "nodemon": "^2.0.7"
   }
 }
